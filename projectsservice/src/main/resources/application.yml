@@ -1,0 +1,31 @@
+server:
+  port: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8080/eureka}
+  instance:
+    instance-id: ${spring.application.name}:${INSTANCE_ID:${random.value}}
+    prefer-ip-address: true
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+  application:
+    name: projectservice
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: SYSTEM
+    password: Admin123$
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
