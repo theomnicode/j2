@@ -1,5 +1,6 @@
 package com.brytcode.projectsservice.controller;
 
+import com.brytcode.projectsservice.entity.Employee;
 import com.brytcode.projectsservice.entity.Project;
 import com.brytcode.projectsservice.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class ProjectController {
     @GetMapping("/projects/emp/{empNo}")
     public Project getProjectByEmp(@PathVariable("empNo") int empNo){
         return projectService.getProjectByEmployees(empNo);
+    }
+    @GetMapping("/employees/{empNo}")
+    public Employee getEmployee(@PathVariable("empNo") int empNo){
+        return projectService.getEmployee(empNo);
     }
 
 }

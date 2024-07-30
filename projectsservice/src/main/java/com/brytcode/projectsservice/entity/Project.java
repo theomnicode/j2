@@ -1,11 +1,11 @@
 package com.brytcode.projectsservice.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name = "PROJECT")
@@ -19,7 +19,9 @@ public class Project {
     private Date startDate;
     @Column(name="END_DATE")
     private Date endDate;
-
+    @OneToMany(mappedBy = "project")
+    @JsonManagedReference
+    private List<Employee> employees = new ArrayList<>();
     public Project() {
     }
 
@@ -60,6 +62,14 @@ public class Project {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.brytcode.empregistry.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Project {
@@ -8,7 +10,7 @@ public class Project {
     private String projectName;
     private Date startDate;
     private Date endDate;
-
+    private List<Employee> employees = new ArrayList<>();
     public Project() {
     }
 
